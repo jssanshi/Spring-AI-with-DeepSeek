@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  mongo8:
+    image: mongo:8.0
+    container_name: mongo8
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret123
+    restart: unless-stopped
+
+  mysql-ai:
+    image: mysql:latest
+    container_name: mysql-ai
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pwd123
+    restart: unless-stopped
+
+  my_neo4j:
+    image: neo4j:latest
+    container_name: my_neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    restart: unless-stopped
